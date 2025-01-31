@@ -10,27 +10,36 @@
 </head>
 <body>
     <div id="app">
-        {{message}}
+        <h1>
+            {{message}}
+        </h1>
+        <button @click="clickMe">Click Me</button>
     </div>
     <script>
-        // const app = Vue.createApp({
-        //     data() {
-        //         return {
-        //             message: 'Hello From Vue!',
-        //         }
-        //     }
-        // })
-        // app.mount('#app')
-        const { createApp, ref } = Vue
-
-        createApp({
-            setup() {
-                const message = ref('Hello vue!')
+        const app = Vue.createApp({
+            data() {
                 return {
-                    message
+                    message: 'Hello From Vue!',
+                }
+            },
+            methods: {
+                clickMe() {
+                    console.log('Button Clicked!');
+                    this.message = 'Updated Message'
                 }
             }
-        }).mount('#app')
+        })
+        app.mount('#app')
+        // const { createApp, ref } = Vue
+        //
+        // createApp({
+        //     setup() {
+        //         const message = ref('Hello vue!')
+        //         return {
+        //             message
+        //         }
+        //     }
+        // }).mount('#app')
     </script>
 </body>
 </html>
